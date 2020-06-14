@@ -3,15 +3,15 @@
 const express = require('express');
 const route = express.Router();
 const getModel = require('../middleware/parms');
-// const bearerMiddleware = require('../auth/middleware/bearer');
-// const permissions = require('../auth/middleware/authorize');
+const bearerMiddleware = require('../auth/middleware/bearer');
+const permissions = require('../auth/middleware/authorize');
 
 route.param('model',getModel);
-route.post('/api/v1/:model',postModel);
-route.get('/api/v1/:model',getAll);
-route.get('/api/v1/:model/:id',getById);
-route.put('/api/v1/:model/:id',updateOne);
-route.delete('/api/v1/:model/:id',deleteOne);
+route.post('/api/v1/:model',bearerMiddleware, permissions('read'),postModel);
+route.get('/api/v1/:model',bearerMiddleware, permissions('create'),getAll);
+route.get('/api/v1/:model/:id',bearerMiddleware, permissions('read'),getById);
+route.put('/api/v1/:model/:id', bearerMiddleware, permissions('update'),updateOne);
+route.delete('/api/v1/:model/:id',bearerMiddleware, permissions('delete'),deleteOne);
 
 function postModel(req,res,next){
   req.model

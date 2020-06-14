@@ -7,9 +7,9 @@ const bearerMiddleware = require('../auth/middleware/bearer');
 const permissions = require('../auth/middleware/authorize');
 
 route.param('model',getModel);
-route.post('/api/v1/:model',bearerMiddleware, permissions('read'),postModel);
-route.get('/api/v1/:model',bearerMiddleware, permissions('create'),getAll);
-route.get('/api/v1/:model/:id',bearerMiddleware, permissions('read'),getById);
+route.post('/api/v1/:model',bearerMiddleware, permissions('create'),postModel);
+route.get('/api/v1/:model',getAll);
+route.get('/api/v1/:model/:id',getById);
 route.put('/api/v1/:model/:id', bearerMiddleware, permissions('update'),updateOne);
 route.delete('/api/v1/:model/:id',bearerMiddleware, permissions('delete'),deleteOne);
 

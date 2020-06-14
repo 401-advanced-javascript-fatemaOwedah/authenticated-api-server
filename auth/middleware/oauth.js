@@ -9,7 +9,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const tokenServerUrl = 'https://github.com/login/oauth/access_token';
 const remoteUserApi = 'https://api.github.com/user';
 
-const API_SERVER = 'https://authenticated-api-server-lab15.herokuapp.com/oauth'; 
+const API_SERVER = 'http://authenticated-api-server-lab15.herokuapp.com/oauth'; 
 
 module.exports = async (req, res, next)=> {
   try {

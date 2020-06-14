@@ -20,18 +20,18 @@
 #### How to initialize/run your application 
 - node index.js /nodemon
 - after that go to swagger
-http://localhost:3000/signup ===> app.post
-http://localhost:3000/signin ===> app.get
-http://localhost:3000/users ===> app.get
-http://localhost:3000/oauth ===> app.get
-http://localhost:3000/secret ===> app.get
+https://authenticated-api-server-lab15.herokuapp.com/signup ===> app.post
+https://authenticated-api-server-lab15.herokuapp.com/signin ===> app.get
+https://authenticated-api-server-lab15.herokuapp.com/users ===> app.get
+https://authenticated-api-server-lab15.herokuapp.com/oauth ===> app.get
+https://authenticated-api-server-lab15.herokuapp.com/secret ===> app.get
 
 role ==========> [admin, writer, regular, editor]
 
-http://localhost:3000/read [admin, writer, regular, editor] ===> app.get
-http://localhost:3000/add  [admin, writer, editor]  ===> app.post
-http://localhost:3000/change [admin, editor]  ===> app.put
-http://localhost:3000/remove [admin]  ===> app.delete
+https://authenticated-api-server-lab15.herokuapp.com/read [admin, writer, regular, editor] ===> app.get
+https://authenticated-api-server-lab15.herokuapp.com/add  [admin, writer, editor]  ===> app.post
+https://authenticated-api-server-lab15.herokuapp.com/change [admin, editor]  ===> app.put
+https://authenticated-api-server-lab15.herokuapp.com/remove [admin]  ===> app.delete
 to run test ===> npm test / npm run test
 
 

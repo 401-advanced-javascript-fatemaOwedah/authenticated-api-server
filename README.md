@@ -33,6 +33,20 @@ https://authenticated-api-server-lab15.herokuapp.com/read [admin, writer, regula
 https://authenticated-api-server-lab15.herokuapp.com/add  [admin, writer, editor]  ===> app.post
 https://authenticated-api-server-lab15.herokuapp.com/change [admin, editor]  ===> app.put
 https://authenticated-api-server-lab15.herokuapp.com/remove [admin]  ===> app.delete
+
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/categories ===> app.post
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/categories ===> app.get
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/categories/:id ===> app.get
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/categories/:id ===> app.put
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/categories/:id ===> app.patch
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/categories/:id ===> app.delete
+///////////////////////////////////////////////////
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/products ===> app.post
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/products ===> app.get
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/products/:id ===> app.get
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/products/:id ===> app.put 
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/products/:id ===> app.patch
+http://authenticated-api-server-lab15.herokuapp.com/api/v1/products/:id ===> app.delete
 to run test ===> npm test / npm run test
 
 
@@ -44,3 +58,6 @@ to run test ===> npm test / npm run test
 
 #### Tests
 npm run test 
+
+#### UML
+![UML](/assets/lab15.jpeg)

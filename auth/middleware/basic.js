@@ -1,8 +1,16 @@
 'use strict';
+/**
+ * @module basic
+ * @requires users-models
+ */
 
 const users = require('../models/users-model');
-const base64 = require('base-64');
-
+/**
+ * This checks the user login and validates it.
+ * @param {object} req The request object. 
+ * @param {object} res The response object.
+ * @param {function} next The next function.
+ */
 module.exports = (req, res, next) => {
 
   let [authType, encodedString] = req.headers.authorization.split(/\s+/);

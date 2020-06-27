@@ -1,4 +1,10 @@
 'use strict';
+/**
+ * @module OAuth
+ * @requires dotenv
+ * @requires superagent
+ * @requires users-model
+ */
 require('dotenv').config();
 const Users = require('../models/users-model');
 const superagent = require('superagent');
@@ -10,6 +16,7 @@ const tokenServerUrl = 'https://github.com/login/oauth/access_token';
 const remoteUserApi = 'https://api.github.com/user';
 
 const API_SERVER = 'https://authenticated-api-server-lab15.herokuapp.com/oauth'; 
+
 
 module.exports = async (req, res, next)=> {
   try {
@@ -34,7 +41,16 @@ module.exports = async (req, res, next)=> {
 
 };
 
-
+/**
+ * @function exchangeCodeForToken
+ * @param {string} code This is the retrieved code from github after a user signs in.
+ * @property {string} client_id This is the client ID that was given in the github app.
+ * @property {string} client_secret This is the client secret that was given in the github app.
+ * @property {string} redirect_uri This is where the token will be redirected to.
+ * @property {string} code This is the code that was given to us from github after the user logged in.
+ * @description After a user logs in, we post to the github token URL with properties so we can get a token back
+ * @returns {string} It returns an access token that can be used to access user information from github.
+ */
 async function exchangeCodeForToken(code) {
   let tokenResponse = await superagent.post(tokenServerUrl).send({
     client_id : CLIENT_ID,
@@ -45,7 +61,11 @@ async function exchangeCodeForToken(code) {
   let access_token = tokenResponse.body.access_token;
   return access_token;
 }
-
+/**
+ * @function getRemoteUserInfo
+ * @param {string} token we take it from github after login.
+ * @returns {string} It returns the user.
+ */
 async function getRemoteUserInfo(token) {
   let userResponse = await superagent
     .get(remoteUserApi)
@@ -55,7 +75,11 @@ async function getRemoteUserInfo(token) {
   let user = userResponse.body;
   return user;
 }
-
+/**
+ * @function getUser
+ * @param {string} remoteUser
+ * @returns {object} It returns [savedUser, myServerToken].
+ */
 async function getUser(remoteUser) {
   let userRecord = {
     username: remoteUser.login,

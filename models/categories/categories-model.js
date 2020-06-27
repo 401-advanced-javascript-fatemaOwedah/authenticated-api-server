@@ -1,5 +1,9 @@
 'use strict';
-
+/**
+ * @module categories-model
+ * @requires model
+ * @requires categories-schema
+ */
 const Model = require('../model');
 const categoriesSchema = require('./categories-schema.js');
 

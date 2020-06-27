@@ -1,5 +1,11 @@
 'use strict';
 // express
+/**
+ * @module index
+ * @requires dotenv
+ * @requires mongoose
+ * @requires server
+ */
 require('dotenv').config();
 const mongoose = require('mongoose');
 // internal modules

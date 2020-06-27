@@ -1,4 +1,9 @@
 'use strict';
+/**
+ * @module product
+ * @requires express
+ * @requires categories-model
+ */
 
 const express = require('express');
 const router = express.Router();
@@ -10,31 +15,60 @@ router.get('/categories', getCategories);
 router.get('/categories/:id', getCategorybyid);
 router.put('/categories/:id', updateCategory);
 router.delete('/categories/:id', deleteCategory);
-
+/**
+ * @function postCategories
+ * @param {object} req The request object. 
+ * @param {object} res The response object.
+ * @param {function} next The next function.
+ */
 function postCategories(req,res,next){
   categoryModel
     .post(req.body)
     .then(addCategory=>{res.status(201).json(addCategory);})
     .catch(next);
 }
+/**
+ * @function getCategories
+ * @param {object} req The request object. 
+ * @param {object} res The response object.
+ * @param {function} next The next function.
+ */
 function getCategories(req,res,next){
   categoryModel
     .get()
     .then(categories =>{res.status(200).json(categories);})
     .catch(next);
 }
+/**
+ * @function getCategorybyid
+ * @param {object} req The request object. 
+ * @param {object} res The response object.
+ * @param {function} next The next function.
+ */
 function getCategorybyid(req,res,next){
   categoryModel
     .get(req.params.id)
     .then(category =>{res.status(200).json(category);})
     .catch(next);  
 }
+/**
+ * @function updateCategory
+ * @param {object} req The request object. 
+ * @param {object} res The response object.
+ * @param {function} next The next function.
+ */
 function updateCategory(req,res,next){
   categoryModel
     .update(req.params.id , req.body)
     .then(categoryafterUpdate =>{res.status(200).json(categoryafterUpdate);})
     .catch(next);  
 }
+/**
+ * @function deleteCategory
+ * @param {object} req The request object. 
+ * @param {object} res The response object.
+ * @param {function} next The next function.
+ */
 function deleteCategory(req,res,next){
   categoryModel
     .delete(req.params.id)
